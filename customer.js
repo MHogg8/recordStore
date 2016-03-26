@@ -18,6 +18,13 @@ Customer.prototype = {
     }else{
       'sorry you cant afford it'
     }
+  },
+  sellsRecord: function(store, album){
+    this.money += album.price;
+    var result = this.collection.indexOf(album);
+    store.stock.push(album);
+    store.balance -= album.price;
+    this.collection.splice(result, 1);
   }
 }
 
